@@ -131,6 +131,8 @@ const ComingSoonPage: NextPageIntlayer = async ({ params }) => {
                     src={locale === "fr" ? "/img/mascot-fr.png" : "/img/mascot-en.png"}
                     alt={String(content.mascotAlt)}
                     fill
+                    sizes="20vw"
+                    loading="eager"
                     className="object-contain object-bottom"
                 />
             </div>
