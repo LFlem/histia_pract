@@ -317,7 +317,7 @@ For questions or feedback, please open an issue on GitHub or contact the develop
 
 ## 📞 Support
 
-- 📧 Email: support@histia.example.com
+- 📧 Email: mousshanim12@gmail.com
 - 🐛 Bugs: [GitHub Issues](https://github.com/yourusername/histia_pract/issues)
 - 💬 Discussions: [GitHub Discussions](https://github.com/yourusername/histia_pract/discussions)
 
