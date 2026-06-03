@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getIntlayer, type NextPageIntlayer } from "next-intlayer";
 
 const ComingSoonPage: NextPageIntlayer = async ({ params }) => {
@@ -64,7 +65,7 @@ const ComingSoonPage: NextPageIntlayer = async ({ params }) => {
                         {locale === "fr" ? "Nous sommes encore en version bêta, " : "We are still in beta, "}
                     </span>
                     <span className="inline-flex items-center gap-1 align-middle">
-                        <img src="/img/Stolos.svg" alt="Stolos" className="w-6 h-6" />
+                        <Image src="/img/Stolos.svg" alt="Stolos" width={24} height={24} className="w-6 h-6" />
                         <strong
                             style={{
                                 color: "#E3E0F6",
@@ -118,7 +119,7 @@ const ComingSoonPage: NextPageIntlayer = async ({ params }) => {
 
             {/* Mascotte droite */}
             <div
-                className="absolute"
+                className="absolute relative"
                 style={{
                     left: "71.875vw",   // 1380/1920
                     top: "10.56vh",     // 114/1080
@@ -126,10 +127,11 @@ const ComingSoonPage: NextPageIntlayer = async ({ params }) => {
                     height: "78.89vh",  // 852/1080
                 }}
             >
-                <img
+                <Image
                     src={locale === "fr" ? "/img/mascot-fr.png" : "/img/mascot-en.png"}
                     alt={String(content.mascotAlt)}
-                    className="h-full w-full object-contain object-bottom"
+                    fill
+                    className="object-contain object-bottom"
                 />
             </div>
 
