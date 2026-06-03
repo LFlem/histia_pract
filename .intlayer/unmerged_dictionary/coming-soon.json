@@ -1,0 +1,45 @@
+[
+  {
+    "key": "coming-soon",
+    "content": {
+      "badge": {
+        "nodeType": "translation",
+        "translation": {
+          "fr": "PAGE EN CONSTRUCTION",
+          "en": "PAGE UNDER CONSTRUCTION"
+        }
+      },
+      "title": {
+        "nodeType": "translation",
+        "translation": {
+          "fr": "Cette page arrive bientôt",
+          "en": "This page is coming soon"
+        }
+      },
+      "description": {
+        "nodeType": "translation",
+        "translation": {
+          "fr": "Nous sommes encore en version bêta, Stolos n'est pas encore complet, notre équipe travaille d'arrache pied pour vous apporter cette page au plus vite !",
+          "en": "We are still in beta, Stolos is not yet complete, our team is working hard to bring you this page as soon as possible!"
+        }
+      },
+      "link": {
+        "nodeType": "translation",
+        "translation": {
+          "fr": "Nos nouveautés ici",
+          "en": "Our latest news here"
+        }
+      },
+      "mascotAlt": {
+        "nodeType": "translation",
+        "translation": {
+          "fr": "Mascotte en construction",
+          "en": "Construction mascot"
+        }
+      }
+    },
+    "location": "local",
+    "localId": "coming-soon::local::app\\[locale]\\coming-soon\\coming-soon.content.ts",
+    "filePath": "app\\[locale]\\coming-soon\\coming-soon.content.ts"
+  }
+]
