@@ -1,14 +1,20 @@
 @import "tailwindcss";
 
+/*
+  Global design tokens used by the Coming Soon page.
+  - Tokens are intentionally lightweight and limited to the variables used
+    by the demo pages so agents and contributors can quickly locate them.
+  - Colors and sizes here mirror the design system from the brief.
+*/
 @theme inline {
-  /* Couleurs */
-  --color-brand-bg: #272149;
-  --color-brand-badge: #BFB9DF;
-  --color-brand-title: #A199D2;
-  --color-brand-body: #877EBC;
-  --color-brand-link: #E1C3FF;
+  /* Colors */
+  --color-brand-bg: #272149; /* dark background for contrast */
+  --color-brand-badge: #BFB9DF; /* badge filled text color */
+  --color-brand-title: #A199D2; /* title color */
+  --color-brand-body: #877EBC; /* body copy color */
+  --color-brand-link: #E1C3FF; /* link / accent color */
 
-  /* Font sizes */
+  /* Font sizes (kept as px tokens for clarity; responsive sizing uses clamp()/vw in components) */
   --font-size-brand-xs: 12px;
   --font-size-brand-m: 24px;
   --font-size-brand-xxl: 48px;
@@ -21,14 +27,16 @@
   /* Letter spacing */
   --letter-spacing-brand-body: 0.02em;
 
-  /* Fonts existantes */
+  /* Font aliases - these map to fonts loaded by next/font in the app when present */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
+  /* Display/heading font variables point to Inter by default in this demo */
   --font-display: var(--font-inter);
   --font-heading: var(--font-inter);
 }
 
+/* Minimal body reset for the demo. Keep this intentionally simple. */
 body {
   background-color: var(--color-brand-bg);
   font-family: Arial, Helvetica, sans-serif;

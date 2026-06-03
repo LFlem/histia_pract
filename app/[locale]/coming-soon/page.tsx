@@ -1,20 +1,39 @@
 import Image from "next/image";
 import { getIntlayer, type NextPageIntlayer } from "next-intlayer";
+import Navbar from "@/components/Navbar/Navbar";
 
+/**
+ * ComingSoonPage
+ * Localized "Coming Soon" marketing page used as a lightweight demo for Histia.
+ * - Uses Intlayer to load localized content by key.
+ * - Layout relies on vw/vh for pixel-perfect positioning based on design artboards
+ *   (primary targets: 1920×1080 and 1400×900). Using viewport units preserves
+ *   proportional spacing across large, full-bleed screens without complex breakpoints.
+ *
+ * Props:
+ * @param params.locale - locale code provided by Intlayer routing ("fr" | "en")
+ * @returns React element
+ */
 const ComingSoonPage: NextPageIntlayer = async ({ params }) => {
     const { locale } = await params;
     const content = getIntlayer("coming-soon", locale);
 
     return (
         <main className="w-screen h-screen bg-brand-bg relative overflow-hidden">
+            <Navbar />
 
             {/* Bloc texte gauche */}
+            {/*
+              Left text block. Positions are defined with vw/vh values exported
+              from the original design (Figma). Example: 14.64vw == 281px at 1920px.
+              Keep these values to preserve visual fidelity for the marketing layout.
+            */}
             <div
                 className="absolute flex flex-col"
                 style={{
-                    left: "14.64vw",
-                    top: "32.13vh",
-                    width: "49.74vw",   // 955/1920
+                    left: "14.64vw", // 281/1920 from design
+                    top: "32.13vh", // 348/1080 from design
+                    width: "49.74vw",   // 955/1920 - content column width
                     gap: "24px",
                 }}
             >
@@ -65,6 +84,7 @@ const ComingSoonPage: NextPageIntlayer = async ({ params }) => {
                         {locale === "fr" ? "Nous sommes encore en version bêta, " : "We are still in beta, "}
                     </span>
                     <span className="inline-flex items-center gap-1 align-middle">
+                        {/* Small inline logo/icon. We use next/image for optimization even for SVGs */}
                         <Image src="/img/Stolos.svg" alt="Stolos" width={24} height={24} className="w-6 h-6" />
                         <strong
                             style={{
@@ -103,6 +123,8 @@ const ComingSoonPage: NextPageIntlayer = async ({ params }) => {
                 </p>
 
                 {/* Lien */}
+                {/* Link-style label (non-interactive in this demo). We use a span to avoid
+                    implying navigation semantics — replace with <a> when wiring a real link. */}
                 <span className="flex items-center gap-3 cursor-default">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
                         stroke="#E1C3FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -118,21 +140,26 @@ const ComingSoonPage: NextPageIntlayer = async ({ params }) => {
             </div>
 
             {/* Mascotte droite */}
+            {/* Mascot on the right. Dimensions and position are taken from Figma artboard
+                measurements (see inline comments for the vw/vh mappings). Using next/image
+                with `fill` lets the image adapt to the parent box while remaining optimized.
+                `sizes` reflects the visual width relative to viewport; `loading="eager"`
+                helps LCP since the mascot is above-the-fold on the primary layouts. */}
             <div
                 className="absolute relative"
                 style={{
-                    left: "71.875vw",   // 1380/1920
-                    top: "10.56vh",     // 114/1080
-                    width: "19.95vw",   // 383/1920
-                    height: "78.89vh",  // 852/1080
+                    left: "71.875vw",   // 1380/1920 = X position in design
+                    top: "10.56vh",     // 114/1080 = Y position in design
+                    width: "19.95vw",   // 383/1920 = mascot width in design
+                    height: "78.89vh",  // 852/1080 = mascot height in design
                 }}
             >
                 <Image
                     src={locale === "fr" ? "/img/mascot-fr.png" : "/img/mascot-en.png"}
                     alt={String(content.mascotAlt)}
                     fill
-                    sizes="20vw"
-                    loading="eager"
+                    sizes="20vw" // approximate rendered width relative to viewport
+                    loading="eager" // LCP optimization — image is above the fold
                     className="object-contain object-bottom"
                 />
             </div>
