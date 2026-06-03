@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: histia-coming-soon
+    runtime: node
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 20.0.0
